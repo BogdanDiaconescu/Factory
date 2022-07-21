@@ -2,6 +2,7 @@ package eu.accesa.internshipfactory;
 
 import eu.accesa.factory.Factory;
 import eu.accesa.sales.Sales;
+import eu.accesa.sales.Transaction;
 import eu.accesa.stock.Stock;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,7 +33,7 @@ public class InternshipFactoryApplication {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         boolean moreInput = true;
         while(moreInput){
-            System.out.println("client nou...");
+            System.out.println("New client");
             String brand = sales.getBrandFromCustomer();
             String model = sales.getModelFromCustomer(brand);
             boolean available = sales.checkCarDisponibility(brand, model);
@@ -40,6 +41,25 @@ public class InternshipFactoryApplication {
             if("q".equalsIgnoreCase(text)) {
                 moreInput = false;
             }
+//            Double price = factory.getCarPrice();
+            Double price = 5000d;
+            Double transactionPrice = sales.calculateSalePrice(price, brand);
+            System.out.println("Price for current transaction: " + transactionPrice + "Do you want to proceed? (y/n)");
+            if(!console.readLine().equals("y"))
+//                System.out.println("Okay. Thank you for your time!");
+//            else{
+//                Transaction t = new Transaction(price, transactionPrice - price, name, model, brand);
+//                System.out.println("We've added you on the waiting list!");
+//                sales.getWaitingTransactions().add(t);
+//            }
+//            System.out.println("################## ADMIN SIDE ####################");
+//            Transaction transaction = sales.getWaitingTransactions().poll();
+//            if(factory.checkIfCarCanBeMade(transaction.getBrand(), transaction.getModel())){
+//                System.out.println("Client " + transaction.getClientName() + ". Car in process.");
+//                sales.getOngoingTransactions().add(transaction);
+//                factory.start();
+//            }
+            System.out.println("##################################################");
         }
 
         return null;

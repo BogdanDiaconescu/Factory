@@ -12,12 +12,13 @@ import java.util.ArrayList;
 
 @Component
 public class Factory {
+    private Car currentCar;
     public void initialize(Stock stock) {
         System.out.println("factory");
     }
 
-
     Boolean checkIfCarCanBeMade(String brand, String model) {
+        currentCar = new Car();
         return true;
     }
 

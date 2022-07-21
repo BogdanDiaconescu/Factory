@@ -26,6 +26,22 @@ public class InternshipFactoryApplication {
 
 
 
+        Factory factory = new Factory();
+        Car car = new Car();
+
+     //   ArrayList<String> types = new ArrayList<>();
+
+//       types= factory.getTypes("bmw");
+//        types = factory.offerTypes("bmw");
+
+
+        Class<?>[] types  = car.getClass().getClasses();
+
+        for(int i=0;i<types.length;i++){
+            System.out.println(types[i].getTypeName());
+        }
+
+
     }
 
     @Bean

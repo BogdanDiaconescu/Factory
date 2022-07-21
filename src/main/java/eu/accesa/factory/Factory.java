@@ -19,6 +19,7 @@ import eu.accesa.part.Wheel;
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -145,18 +146,23 @@ public class Factory {
 
 
 
-    public ArrayList<String> getTypes(String car){
+    public ArrayList<String> getCars(){
+
+        ArrayList<String> types = new ArrayList<>();
+        types.add("Dacia");
+        types.add("Tesla");
+        types.add("BMW");
+
+        return types;
+
+
+    }
+
+    public ArrayList<String> getModels(String car){
 
         ArrayList<String> types = new ArrayList<>();
 
-
         switch (car){
-            case "Car" : {
-                types.add("BMW");
-                types.add("Dacia");
-                types.add("Tesla");
-                break;
-            }
             case "Dacia" : {
                 types.add("Duster");
                 types.add("Logan");
@@ -177,7 +183,6 @@ public class Factory {
 
         }
         return types;
-
     }
 
     public ArrayList<String> offerTypes(Object o){
@@ -185,11 +190,13 @@ public class Factory {
         ArrayList<String> types = new ArrayList<>();
         for(Object obj: o.getClass().getClasses()) {
 
-            types.add(obj.getClass().getName());
+            types.add(obj.getClass().getSimpleName());
         }
 
         return types;
     }
+
+
 
 }
 

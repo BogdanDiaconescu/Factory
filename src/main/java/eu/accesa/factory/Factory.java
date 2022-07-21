@@ -26,8 +26,10 @@ import java.util.Queue;
 @Component
 public class Factory {
     private Car currentCar;
+    private Stock stock;
     public void initialize(Stock stock) {
         System.out.println("factory");
+        this.stock = stock;
     }
 
     Boolean checkIfCarCanBeMade(String brand, String model) {
@@ -71,7 +73,6 @@ public class Factory {
     Boolean addChassis(Integer stiffness) {
 
         Chassis c = new Chassis(stiffness);
-
         //stock checking in the future
         if(true){
             currentCar.setChassis(c);

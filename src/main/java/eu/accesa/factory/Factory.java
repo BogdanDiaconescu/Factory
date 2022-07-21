@@ -8,10 +8,14 @@ import eu.accesa.car.Car;
 import eu.accesa.part.AirConditioning;
 import eu.accesa.part.AllWheelDrive;
 import eu.accesa.part.AutoPilot;
+
+import eu.accesa.part.Engine;
+
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class Factory {
@@ -51,8 +55,19 @@ public class Factory {
         return true;
     }
 
-    Boolean addEngine(EngineType type, Long horsePower, Double cylinderCapacity) {
-        return true;
+    Boolean addEngine(EngineType type, Long horsePower, Double cylinderCapacity, Double price ) {
+
+        Engine e = new Engine(type,horsePower, cylinderCapacity, 0.0);
+
+        if(/*verificare*/true)
+        {
+            currentCar.setEngines((List<Engine>) e);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     Boolean addSeat(Boolean heated, Boolean manual, Boolean electric) {

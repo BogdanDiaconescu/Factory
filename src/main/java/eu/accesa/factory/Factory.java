@@ -79,7 +79,7 @@ public class Factory {
 
         if(stock.checkIfPartInStock(b)){
             currentCar.setBrakes(list);
-            return false;
+            return true;
         }
         return false;
     }

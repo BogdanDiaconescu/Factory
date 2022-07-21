@@ -71,8 +71,7 @@ public class Factory {
 
         list.add(b);
 
-        //stock checking in the future
-        if(true){
+        if(stock.checkIfPartInStock(b)){
             currentCar.setBrakes(list);
             return false;
         }
@@ -82,8 +81,8 @@ public class Factory {
     Boolean addChassis(Integer stiffness) {
 
         Chassis c = new Chassis(stiffness);
-        //stock checking in the future
-        if(true){
+
+        if(stock.checkIfPartInStock(c)){
             currentCar.setChassis(c);
             return true;
         }

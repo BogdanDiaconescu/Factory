@@ -99,7 +99,7 @@ public class Factory {
 
         Engine e = new Engine(type,horsePower, cylinderCapacity, 0.0);
 
-        if(/*verificare*/true)
+        if(stock.checkIfPartInStock(e))
         {
             currentCar.setEngines((List<Engine>) e);
             return true;
@@ -111,9 +111,10 @@ public class Factory {
     }
 
     Boolean addSeat(Double price ,Boolean heated, Boolean manual, Boolean electric) {
-        if(/*verificare*/true)
+        Seat s= new Seat(price, heated, manual, electric);
+        if(stock.checkIfPartInStock(s))
         {
-            currentCar.setSeats((List<Seat>) new Seat(price, heated, manual, electric));
+            currentCar.setSeats((List<Seat>) s );
             return true;
         }
         else
@@ -123,9 +124,10 @@ public class Factory {
     }
 
     Boolean addSensor(Double price) {
-        if(/*verificare*/true)
+        Sensor s=new Sensor(price);
+        if(stock.checkIfPartInStock(s))
         {
-            currentCar.setSensors((List<Sensor>) new Sensor(price));
+            currentCar.setSensors((List<Sensor>) s);
             return true;
         }
         else

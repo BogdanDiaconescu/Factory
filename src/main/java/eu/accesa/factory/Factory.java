@@ -5,6 +5,8 @@ import eu.accesa.internshipfactory.constatnts.EngineType;
 
 import eu.accesa.car.Car;
 
+import eu.accesa.part.Brake;
+import eu.accesa.part.Chassis;
 import eu.accesa.part.Engine;
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
@@ -37,11 +39,31 @@ public class Factory {
     }
 
     Boolean addBrake(Integer performance) {
-        return true;
+
+        Brake b = new Brake(performance);
+        ArrayList<Brake> list = new ArrayList();
+
+        list.add(b);
+
+        //stock checking in the future
+        if(true){
+            currentCar.setBrakes(list);
+            return false;
+        }
+        return false;
     }
 
     Boolean addChassis(Integer stiffness) {
-        return true;
+
+        Chassis c = new Chassis(stiffness);
+
+        //stock checking in the future
+        if(true){
+            currentCar.setChassis(c);
+            return true;
+        }
+
+        return false;
     }
 
     Boolean addEngine(EngineType type, Long horsePower, Double cylinderCapacity, Double price ) {

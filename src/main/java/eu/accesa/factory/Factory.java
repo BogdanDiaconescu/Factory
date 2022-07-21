@@ -1,5 +1,6 @@
 package eu.accesa.factory;
 
+import eu.accesa.internshipfactory.constatnts.EngineType;
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
 
@@ -13,50 +14,46 @@ public class Factory {
         return true;
     }
 
-    Boolean addAirConditioning() {
+    Boolean addAirConditioning(Integer vents) {
         return true;
     }
 
-    Boolean addAllWheelDrive() {
+    Boolean addAllWheelDrive(Integer performance) {
         return true;
     }
 
-    Boolean addAutoPilot() {
+    Boolean addAutoPilot(Integer level) {
         return true;
     }
 
-    Boolean addAirBrake() {
+    Boolean addBrake(Integer performance) {
         return true;
     }
 
-    Boolean addAirChassis() {
+    Boolean addChassis(Integer stiffness) {
         return true;
     }
 
-    Boolean addEngine() {
+    Boolean addEngine(EngineType type, Long horsePower, Double cylinderCapacity) {
         return true;
     }
 
-    Boolean addPart() {
-        return true;
-    }
-
-    Boolean addSeat() {
+    Boolean addSeat(Boolean heated, Boolean manual, Boolean electric) {
         return true;
     }
 
     Boolean addSensor() {
         return true;
     }
-    Boolean addSteeringWheel() {
+    Boolean addSteeringWheel(String shape) {
         return true;
     }
 
-    Boolean addSunRoof() {
+    Boolean addSunRoof(Boolean electric) {
         return true;
     }
 
-    Boolean addWheel() {
+    Boolean addWheel(Integer numberOfSpokes) {
         return true;
     }
 

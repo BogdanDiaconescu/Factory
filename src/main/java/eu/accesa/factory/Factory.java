@@ -43,20 +43,29 @@ public class Factory {
     }
 
     Boolean addAirConditioning(Integer vents) {
-        // verify stock
-        currentCar.setAirConditioning(new AirConditioning(vents));
+        AirConditioning part = new AirConditioning(vents);
+        if(!stock.checkIfPartInStock(part)) {
+            return false;
+        }
+        currentCar.setAirConditioning(part);
         return true;
     }
 
     Boolean addAllWheelDrive(Integer performance) {
-        // verify stock
-        currentCar.setAllWheelDrive(new AllWheelDrive(performance,0.0));
+        AllWheelDrive part = new AllWheelDrive(performance,0.0);
+        if(!stock.checkIfPartInStock(part)) {
+            return false;
+        }
+        currentCar.setAllWheelDrive(part);
         return true;
     }
 
     Boolean addAutoPilot(Integer level) {
-        // verify stock
-        currentCar.setAutoPilot(new AutoPilot(level));
+        AutoPilot part = new AutoPilot(level);
+        if(!stock.checkIfPartInStock(part)) {
+            return false;
+        }
+        currentCar.setAutoPilot(part);
         return true;
     }
 
@@ -67,8 +76,7 @@ public class Factory {
 
         list.add(b);
 
-        //stock checking in the future
-        if(true){
+        if(stock.checkIfPartInStock(b)){
             currentCar.setBrakes(list);
             return false;
         }
@@ -78,8 +86,8 @@ public class Factory {
     Boolean addChassis(Integer stiffness) {
 
         Chassis c = new Chassis(stiffness);
-        //stock checking in the future
-        if(true){
+
+        if(stock.checkIfPartInStock(c)){
             currentCar.setChassis(c);
             return true;
         }

@@ -106,9 +106,11 @@ public class Factory {
     }
     Boolean addSteeringWheel(String shape) {
         //verify stock
+        SteeringWheel steeringWheel= new SteeringWheel(shape);
+        if (Stock.checkIfPartInStock(steeringWheel)==false)
+            return false;
 
         //add steering wheel
-        SteeringWheel steeringWheel= new SteeringWheel(shape);
         currentCar.setSteeringWheel(steeringWheel);
 
         //return true if added
@@ -117,9 +119,11 @@ public class Factory {
 
     Boolean addSunRoof(Boolean electric) {
         //verify stock
+        SunRoof sunroof=new SunRoof(electric, 100d);
+        if (Stock.checkIfPartInStock(sunroof)==false)
+            return false;
 
         //add sunroof if available
-        SunRoof sunroof=new SunRoof(electric, 100d);
         currentCar.setSunRoof(sunroof);
 
         //return true if added sunroof
@@ -128,9 +132,11 @@ public class Factory {
 
     Boolean addWheel(Integer numberOfSpokes) {
         //verify stock
+        Wheel wheel=new Wheel(numberOfSpokes);
+        if (Stock.checkIfPartInStock(wheel)==false)
+            return false;
 
         //add wheel in the list of wheels if available
-        Wheel wheel=new Wheel(numberOfSpokes);
         Queue wheels = (Queue) currentCar.getWheels();
         if (currentCar.getWheels().size()<4)
             wheels.add(wheel);
@@ -139,6 +145,7 @@ public class Factory {
             wheels.add(wheel);
         }
         currentCar.setWheels((List<Wheel>) wheels);
+
         //return true if added wheels
         return true;
     }

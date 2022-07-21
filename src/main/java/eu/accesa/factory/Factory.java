@@ -137,7 +137,7 @@ public class Factory {
     Boolean addSteeringWheel(String shape) {
         //verify stock
         SteeringWheel steeringWheel= new SteeringWheel(shape);
-        if (Stock.checkIfPartInStock(steeringWheel)==false)
+        if (stock.checkIfPartInStock(steeringWheel)==false)
             return false;
 
         //add steering wheel
@@ -150,7 +150,7 @@ public class Factory {
     Boolean addSunRoof(Boolean electric) {
         //verify stock
         SunRoof sunroof=new SunRoof(electric, 100d);
-        if (Stock.checkIfPartInStock(sunroof)==false)
+        if (stock.checkIfPartInStock(sunroof)==false)
             return false;
 
         //add sunroof if available
@@ -163,7 +163,7 @@ public class Factory {
     Boolean addWheel(Integer numberOfSpokes) {
         //verify stock
         Wheel wheel=new Wheel(numberOfSpokes);
-        if (Stock.checkIfPartInStock(wheel)==false)
+        if (stock.checkIfPartInStock(wheel)==false)
             return false;
 
         //add wheel in the list of wheels if available

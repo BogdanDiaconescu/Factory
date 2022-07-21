@@ -94,4 +94,16 @@ public class Stock {
             return (int) requiredSteel * 30 / 100;
         }
     }
+    public static Boolean checkIfPartInStock(Part part){
+        return true;
+    }
+
+    public Boolean takePart(Part part){
+        return true;
+    }
+
+    public Integer checkPartTimeToCreate(Part part)
+    {
+        return 1;
+    }
 }

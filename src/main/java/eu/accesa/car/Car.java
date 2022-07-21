@@ -11,6 +11,11 @@ import java.util.stream.Collectors;
 public class Car implements Comparable<Car> {
 
     private Map<Parts, List<Part>> parts;
+
+    public Map<Parts, List<Part>> getParts() {
+        return parts;
+    }
+
     private AirConditioning airConditioning;
     private AllWheelDrive allWheelDrive;
     private AutoPilot autoPilot;

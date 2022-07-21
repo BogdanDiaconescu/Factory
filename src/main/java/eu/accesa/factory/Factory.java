@@ -19,7 +19,7 @@ public class Factory {
         System.out.println("factory");
     }
 
-    Boolean checkIfCarCanBeMade(String brand, String model) {
+    public Boolean checkIfCarCanBeMade(String brand, String model) {
         currentCar = new Car();
         return true;
     }

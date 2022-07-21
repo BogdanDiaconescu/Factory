@@ -11,9 +11,10 @@ public class Stock {
     // otel, pret, cantitate
     private List<List<Double>> parts;
     private SteelGenerator steelGenerator;
-    private Queue<Part> partQueue;
 
     public void initialize() {
+        steelGenerator = new SteelGenerator();
+
         System.out.println("stock initializer");
         parts = new ArrayList<>();
         parts.add(List.of(10.3d, 4d, 3d));
@@ -65,6 +66,22 @@ public class Stock {
             steel -= part.getSteelContentInKg();
             ok = true;
         }
+        /*
+        else {
+            if(steel < part.getSteelContentInKg()) {
+                while (steel < part.getSteelContentInKg()) {
+                    Double d = steelGenerator.generate();
+                    if (d != 0d)
+                        System.out.println(d);
+
+                    steel += steelGenerator.generate();
+                    //System.out.println(steel);
+                }
+                ok=true;
+            }
+        }
+
+         */
 
         return ok;
     }
@@ -77,9 +94,4 @@ public class Stock {
             return (int) requiredSteel * 30 / 100;
         }
     }
-
-    public void generateSteel() {
-        steel += 10;
-    }
-
 }

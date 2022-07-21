@@ -13,6 +13,6 @@ public class Test {
 
         stock.takePart(new Part(3000d, 4d));
         System.out.println(stock.getSteel());
-        System.out.println(stock.checkPartTimeToCreate(new Part(120d, 4d)));
+        System.out.println(stock.takePart(new Part(120d, 4d)));
     }
 }

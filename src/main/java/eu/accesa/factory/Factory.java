@@ -8,15 +8,16 @@ import eu.accesa.car.Car;
 import eu.accesa.part.AirConditioning;
 import eu.accesa.part.AllWheelDrive;
 import eu.accesa.part.AutoPilot;
-
 import eu.accesa.part.Engine;
-
+import eu.accesa.part.SteeringWheel;
+import eu.accesa.part.SunRoof;
+import eu.accesa.part.Wheel;
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
-import java.lang.reflect.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 @Component
 public class Factory {
@@ -79,14 +80,41 @@ public class Factory {
         return true;
     }
     Boolean addSteeringWheel(String shape) {
+        //verify stock
+
+        //add steering wheel
+        SteeringWheel steeringWheel= new SteeringWheel(shape);
+        currentCar.setSteeringWheel(steeringWheel);
+
+        //return true if added
         return true;
     }
 
     Boolean addSunRoof(Boolean electric) {
+        //verify stock
+
+        //add sunroof if available
+        SunRoof sunroof=new SunRoof(electric, 100d);
+        currentCar.setSunRoof(sunroof);
+
+        //return true if added sunroof
         return true;
     }
 
     Boolean addWheel(Integer numberOfSpokes) {
+        //verify stock
+
+        //add wheel in the list of wheels if available
+        Wheel wheel=new Wheel(numberOfSpokes);
+        Queue wheels = (Queue) currentCar.getWheels();
+        if (currentCar.getWheels().size()<4)
+            wheels.add(wheel);
+        else {
+            wheels.remove();
+            wheels.add(wheel);
+        }
+        currentCar.setWheels((List<Wheel>) wheels);
+        //return true if added wheels
         return true;
     }
 
@@ -140,9 +168,7 @@ public class Factory {
         return types;
     }
 
-
-
-    }
+}
 
 
 

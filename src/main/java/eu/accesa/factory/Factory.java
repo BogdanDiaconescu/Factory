@@ -1,6 +1,13 @@
 package eu.accesa.factory;
 
 
+import eu.accesa.car.bmw.Series1;
+import eu.accesa.car.bmw.Series3;
+import eu.accesa.car.dacia.Duster;
+import eu.accesa.car.dacia.Logan;
+import eu.accesa.car.dacia.Spring;
+import eu.accesa.car.tesla.Model3;
+import eu.accesa.car.tesla.ModelS;
 import eu.accesa.internshipfactory.constatnts.EngineType;
 
 import eu.accesa.car.Car;
@@ -27,6 +34,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Queue;
 
 @Component
@@ -39,7 +47,32 @@ public class Factory {
     }
 
     Boolean checkIfCarCanBeMade(String brand, String model) {
-        currentCar = new Car();
+        if (Objects.equals(brand, "Dacia")) {
+            switch (model) {
+                case "Duster" -> currentCar = new Duster();
+                case "Logan" -> currentCar = new Logan();
+                case "Spring" -> currentCar = new Spring();
+            }
+        } else if (Objects.equals(brand, "BMW")){
+            switch (model) {
+                case "Series1" -> currentCar = new Series1();
+                case "Series3" -> currentCar = new Series3();
+
+            }
+        } else if (Objects.equals(brand, "Tesla")) {
+            switch (model) {
+                case "Model3" -> currentCar = new Model3();
+                case "ModelS" -> currentCar = new ModelS();
+            }
+        }
+        var parts = currentCar.getParts();
+        for(var part: parts.values()) {
+            for (var part2: part) {
+                if (!stock.checkIfPartInStock(part2)) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 

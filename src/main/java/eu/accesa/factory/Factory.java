@@ -6,6 +6,7 @@ import eu.accesa.internshipfactory.constatnts.EngineType;
 import eu.accesa.car.Car;
 
 
+
 import eu.accesa.part.Brake;
 import eu.accesa.part.Chassis;
 
@@ -16,6 +17,10 @@ import eu.accesa.part.Engine;
 import eu.accesa.part.SteeringWheel;
 import eu.accesa.part.SunRoof;
 import eu.accesa.part.Wheel;
+
+import eu.accesa.part.*;
+
+
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
 
@@ -97,12 +102,28 @@ public class Factory {
         }
     }
 
-    Boolean addSeat(Boolean heated, Boolean manual, Boolean electric) {
-        return true;
+    Boolean addSeat(Double price ,Boolean heated, Boolean manual, Boolean electric) {
+        if(/*verificare*/true)
+        {
+            currentCar.setSeats((List<Seat>) new Seat(price, heated, manual, electric));
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    Boolean addSensor() {
-        return true;
+    Boolean addSensor(Double price) {
+        if(/*verificare*/true)
+        {
+            currentCar.setSensors((List<Sensor>) new Sensor(price));
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     Boolean addSteeringWheel(String shape) {
         //verify stock

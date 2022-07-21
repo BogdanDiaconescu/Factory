@@ -6,7 +6,7 @@ public class Stock {
     public void initialize() {
         System.out.println("stock");
     }
-    public Boolean checkIfPartInStock(Part part){
+    public static Boolean checkIfPartInStock(Part part){
         return true;
     }
 

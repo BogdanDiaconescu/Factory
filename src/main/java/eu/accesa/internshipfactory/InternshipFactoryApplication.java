@@ -1,6 +1,7 @@
 package eu.accesa.internshipfactory;
 
 import eu.accesa.car.Car;
+import eu.accesa.car.bmw.Bmw;
 import eu.accesa.factory.Factory;
 import eu.accesa.sales.Sales;
 import eu.accesa.stock.Stock;
@@ -21,16 +22,25 @@ public class InternshipFactoryApplication {
 
     public static void main(String[] args) {
 
-      //  SpringApplication.run(InternshipFactoryApplication.class, args);
+        SpringApplication.run(InternshipFactoryApplication.class, args);
+
 
 
         Factory factory = new Factory();
         Car car = new Car();
 
-        ArrayList<String> types = new ArrayList<>();
+     //   ArrayList<String> types = new ArrayList<>();
 
-       types= factory.getTypes("bmw");
-        System.out.println(types);
+//       types= factory.getTypes("bmw");
+//        types = factory.offerTypes("bmw");
+
+
+        Class<?>[] types  = car.getClass().getClasses();
+
+        for(int i=0;i<types.length;i++){
+            System.out.println(types[i].getTypeName());
+        }
+
 
     }
 

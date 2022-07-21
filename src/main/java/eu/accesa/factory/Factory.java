@@ -5,7 +5,12 @@ import eu.accesa.internshipfactory.constatnts.EngineType;
 
 import eu.accesa.car.Car;
 
+import eu.accesa.part.AirConditioning;
+import eu.accesa.part.AllWheelDrive;
+import eu.accesa.part.AutoPilot;
+
 import eu.accesa.part.Engine;
+
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
 
@@ -25,14 +30,20 @@ public class Factory {
     }
 
     Boolean addAirConditioning(Integer vents) {
+        // verify stock
+        currentCar.setAirConditioning(new AirConditioning(vents));
         return true;
     }
 
     Boolean addAllWheelDrive(Integer performance) {
+        // verify stock
+        currentCar.setAllWheelDrive(new AllWheelDrive(performance,0.0));
         return true;
     }
 
     Boolean addAutoPilot(Integer level) {
+        // verify stock
+        currentCar.setAutoPilot(new AutoPilot(level));
         return true;
     }
 

@@ -45,7 +45,10 @@ public class Factory {
         System.out.println("factory");
         this.stock = stock;
     }
-
+//<<<<<<< sales_andrei
+    //public Boolean checkIfCarCanBeMade(String brand, String model) {
+        currentCar = new Car();
+=======
     Boolean checkIfCarCanBeMade(String brand, String model) {
         if (Objects.equals(brand, "Dacia")) {
             switch (model) {
@@ -73,6 +76,7 @@ public class Factory {
                 }
             }
         }
+//>>>>>>> main
         return true;
     }
 

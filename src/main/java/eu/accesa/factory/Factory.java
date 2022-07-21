@@ -5,11 +5,20 @@ import eu.accesa.internshipfactory.constatnts.EngineType;
 
 import eu.accesa.car.Car;
 
+
 import eu.accesa.part.Brake;
 import eu.accesa.part.Chassis;
+
+import eu.accesa.part.AirConditioning;
+import eu.accesa.part.AllWheelDrive;
+import eu.accesa.part.AutoPilot;
+
+
 import eu.accesa.part.Engine;
+
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
+import java.lang.reflect.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,14 +36,20 @@ public class Factory {
     }
 
     Boolean addAirConditioning(Integer vents) {
+        // verify stock
+        currentCar.setAirConditioning(new AirConditioning(vents));
         return true;
     }
 
     Boolean addAllWheelDrive(Integer performance) {
+        // verify stock
+        currentCar.setAllWheelDrive(new AllWheelDrive(performance,0.0));
         return true;
     }
 
     Boolean addAutoPilot(Integer level) {
+        // verify stock
+        currentCar.setAutoPilot(new AutoPilot(level));
         return true;
     }
 
@@ -102,13 +117,51 @@ public class Factory {
 
 
 
-    public ArrayList<Object> offerTypes(Object o){
+    public ArrayList<String> getTypes(String car){
 
-        ArrayList<Object> types = new ArrayList<>();
+        ArrayList<String> types = new ArrayList<>();
+
+
+        switch (car){
+            case "car" : {
+                types.add("bmw");
+                types.add("dacia");
+                types.add("tesla");
+                break;
+            }
+            case "dacia" : {
+                types.add("Dacia");
+                types.add("Duster");
+                types.add("Logan");
+                types.add("Spring");
+                break;
+            }
+            case "bmw" : {
+                types.add("Bmw");
+                types.add("Series1");
+                types.add("Series3");
+                break;
+            }
+            case "tesla" : {
+                types.add("Model3");
+                types.add("ModelS");
+                types.add("Tesla");
+                break;
+            }
+
+        }
+        return types;
+
+    }
+
+    public ArrayList<String> offerTypes(Object o){
+
+        ArrayList<String> types = new ArrayList<>();
         for(Object obj: o.getClass().getClasses()) {
 
-            types.add(o.getClass().getName());
+            types.add(obj.getClass().getName());
         }
+
         return types;
     }
 

@@ -32,6 +32,10 @@ public class InternshipFactoryApplication {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         boolean moreInput = true;
         while(moreInput){
+            System.out.println("client nou...");
+            String brand = sales.getBrandFromCustomer();
+            String model = sales.getModelFromCustomer(brand);
+            boolean available = sales.checkCarDisponibility(brand, model);
             String text = console.readLine();
             if("q".equalsIgnoreCase(text)) {
                 moreInput = false;

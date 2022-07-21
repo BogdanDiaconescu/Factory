@@ -151,29 +151,27 @@ public class Factory {
 
 
         switch (car){
-            case "car" : {
-                types.add("bmw");
-                types.add("dacia");
-                types.add("tesla");
+            case "Car" : {
+                types.add("BMW");
+                types.add("Dacia");
+                types.add("Tesla");
                 break;
             }
-            case "dacia" : {
-                types.add("Dacia");
+            case "Dacia" : {
                 types.add("Duster");
                 types.add("Logan");
                 types.add("Spring");
                 break;
             }
-            case "bmw" : {
-                types.add("Bmw");
+            case "BMW" : {
                 types.add("Series1");
                 types.add("Series3");
                 break;
             }
-            case "tesla" : {
+            case "Tesla" : {
                 types.add("Model3");
                 types.add("ModelS");
-                types.add("Tesla");
+
                 break;
             }
 

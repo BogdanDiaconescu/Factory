@@ -45,11 +45,11 @@ public class Factory {
         System.out.println("factory");
         this.stock = stock;
     }
-//<<<<<<< sales_andrei
-    //public Boolean checkIfCarCanBeMade(String brand, String model) {
-        currentCar = new Car();
-=======
-    Boolean checkIfCarCanBeMade(String brand, String model) {
+////<<<<<<< sales_andrei
+//    //public Boolean checkIfCarCanBeMade(String brand, String model) {
+//        currentCar = new Car();
+//=======
+    public Boolean checkIfCarCanBeMade(String brand, String model) {
         if (Objects.equals(brand, "Dacia")) {
             switch (model) {
                 case "Duster" -> currentCar = new Duster();

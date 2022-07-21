@@ -1,5 +1,7 @@
 package eu.accesa.part;
 
+import java.util.Objects;
+
 public class Part {
     private Double steelContentInKg;
     private Double price;
@@ -21,6 +23,16 @@ public class Part {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+
+    public boolean equals(Part o) {
+        if(o.getPrice()==this.getPrice() && o.getSteelContentInKg() == this.getSteelContentInKg())
+            return true;
+        return false;
+
+
+    }
+
 
     public Double getSteelContentInKg() {
         return steelContentInKg;

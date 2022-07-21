@@ -1,14 +1,21 @@
 package eu.accesa.factory;
 
+
 import eu.accesa.internshipfactory.constatnts.EngineType;
+
+import eu.accesa.car.Car;
+
 import eu.accesa.stock.Stock;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 
 @Component
 public class Factory {
     public void initialize(Stock stock) {
         System.out.println("factory");
     }
+
 
     Boolean checkIfCarCanBeMade(String brand, String model) {
         return true;
@@ -57,4 +64,21 @@ public class Factory {
         return true;
     }
 
-}
+
+
+    public ArrayList<Object> offerTypes(Object o){
+
+        ArrayList<Object> types = new ArrayList<>();
+        for(Object obj: o.getClass().getClasses()) {
+
+            types.add(o.getClass().getName());
+        }
+        return types;
+    }
+
+
+
+    }
+
+
+
